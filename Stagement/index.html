@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chương trình điều kiện</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <style>
+      label {
+        padding: 5px 0 0;
+      }
+    </style>
+  </head>
+  <body class="m-auto" style="width: 80%">
+    <!-- Kiến thức bên ngoài: 
+        những biến boolean thường sẽ được đặt tên biến : Is*** (ví dụ: isMale, isFemale)
+        // Phép so sánh:
+        var isEqual =6 ==='6'; False: so sánh về giá trị + kiểu dữ liệu
+        var isEqual =6 =='6'; False: so sánh về giá trị
+
+        // So sanh khác:
+        var isDiff='A'!='A'; False
+        var isDiff=9!=8; TRue
+        // Phép logical:
+            <điều kiện 1> && <điều kiện 2> :  Điều kiện 1 đúng và điều kiện 2 đúng thì giá trị là đúng. ngược lại 1 trong 2 giá trị không đúng thì là sai.
+            var result = false && 6; false 
+            var result = false || 6; 6: do thứ tự  thực hiện chương trình. 
+
+        // Ternarry Operator: toán tử 3 ngôi dùng rất nhiều
+    -->
+
+    <h2 class="text-center" style="font-size: 50px">Cấu trúc điều kiện</h2>
+    <div class="no1 my-5">
+      <p class="" style="font-size: 20px">Bài 1: Chuyển số âm sang số dương</p>
+      <label>Nhập số cần chuyển đổi</label>
+      <div class="content row m-auto justify-content-between">
+        <input
+          type="text"
+          class="form-control col-9"
+          name=""
+          id="soam"
+          aria-describedby="helpId"
+          placeholder="Nhập số âm"
+        />
+        <a
+          name=""
+          id="soBtn"
+          class="btn btn-primary col-2 ml-3"
+          href="#"
+          role="button"
+          onclick="changeNumber()"
+          >Chuyển</a
+        >
+      </div>
+      <div class="form-group" style="width: 70%">
+        <small
+          id="info-no1"
+          class="form-text text-muted text-center"
+          style="color: red; display: none"
+          >Help text</small
+        >
+      </div>
+      <div class="form-group">
+        <label>Kết quả</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id="ketquaSoduong"
+          aria-describedby="helpId"
+          placeholder=""
+        />
+      </div>
+    </div>
+    <div class="no2 my-5">
+      <p class="" style="font-size: 20px">Bài 2: Tính tiền phạt thẻ tín dụng</p>
+      <label>Số dư thẻ tín dụng</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="soduTD"
+        placeholder="Tiền (VNĐ)"
+      />
+      <label>Số tiền trả ngân hàng</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="payTD"
+        placeholder="Tiền (VNĐ)"
+      />
+      <a
+        name=""
+        id=""
+        class="btn btn-primary col-2 my-3"
+        href="#"
+        role="button"
+        onclick="paymendCard()"
+        >Payment</a
+      >
+      <div id="formResult" class="form-group" style="display: none">
+        <div id="resultTT">
+          <label>Số tiền còn nợ</label>
+          <input
+            type="text"
+            class="form-control"
+            name=""
+            id="balanceTD"
+            aria-describedby="helpId"
+            placeholder=""
+          />
+          <label>Tổng tiền phải thanh toán</label>
+          <input
+            type="text"
+            class="form-control"
+            name=""
+            id="totalMoney"
+            aria-describedby="helpId"
+            placeholder=""
+          />
+        </div>
+        <p id="infoResult">
+          Bạn đã hoàn thành thanh toán! Cảm ơn bạn đã sử dụng dịch vụ bên ngân
+          hàng chúng tôi
+        </p>
+      </div>
+    </div>
+    <div class="no3 my-5">
+      <p class="" style="font-size: 20px">
+        Bài 3: Tính tiền lương nhân viên theo tuần
+      </p>
+      <label>Số giờ làm việc trong một tuần của nhân viên</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="hour"
+        placeholder="Working Hour (h)"
+      />
+      <label>Số tiền mỗi giờ lao động</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="moneyHour"
+        placeholder="Tiền (VNĐ)"
+      />
+      <a
+        name=""
+        id=""
+        class="btn btn-primary col-2 my-3"
+        href="#"
+        role="button"
+        onclick="salaryPay()"
+        >Calculate</a
+      >
+      <div id="formresultSalary" class="form-group" style="display: none">
+        <label>Số tiền lương nhận</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id="salaryID"
+          aria-describedby="helpId"
+          placeholder=""
+        />
+      </div>
+    </div>
+    <div class="no4 my-5">
+      <p class="" style="font-size: 20px">
+        Bài 4: Tính số tiền cần thanh toán khi đặt đơn hàng
+      </p>
+      <label for="">Hãy chọn sản phẩm</label>
+      <select class="form-control" id="productID" onchange="changeDongia()">
+        <option>--Chọn sản phẩm--</option>
+        <option value="2000">Áo thun</option>
+        <option value="5000">Áo thun dài tay</option>
+        <option value="30000">Áo ấm</option>
+        <option value="9000">Quần Jean</option>
+        <option value="150000">Vecton</option>
+      </select>
+      <label>Số lượng cần mua</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="proQty"
+        placeholder="Số lượng"
+      />
+      <label>Đơn giá</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="moneyperPro"
+        placeholder="Tiền (VNĐ)"
+      />
+      <a
+        name=""
+        id=""
+        class="btn btn-primary col-2 my-3"
+        href="#"
+        role="button"
+        onclick="moPayTienthanhtoan()"
+        >Calculate</a
+      >
+      <div id="resultPay" class="form-group" style="display: none">
+        <p id="productN" style="font-size: 30px"></p>
+        <label>số tiền thanh toán</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id="paymentID"
+          aria-describedby="helpId"
+          placeholder=""
+        />
+      </div>
+    </div>
+    <div class="no5 my-5">
+      <p class="" style="font-size: 20px">
+        Bài 5: Tính và xuất kết quả xếp loại học tập
+      </p>
+      <label for="">Nhập tên của bạn</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="HS-fullName"
+        placeholder="Họ và tên"
+      />
+      <label>Điểm Toán</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="toanID"
+        placeholder="Bao nhiêu điểm"
+      />
+      <label>Điểm Lý</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="lyID"
+        placeholder="Bao nhiêu điểm"
+      />
+      <label>Điểm hóa</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="hoaID"
+        placeholder="Bao nhiêu điểm"
+      />
+      <a
+        name=""
+        id=""
+        class="btn btn-primary col-2 my-3"
+        href="#"
+        role="button"
+        onclick="TB()"
+        >Calculate</a
+      >
+      <div id="resultLearn" class="form-group" style="display: none">
+        <p id="HSID" style="font-size: 30px"></p>
+        <label>Số điểm trung bình</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id="TBID"
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <p id="xeploaiID" class="py-3"></p>
+      </div>
+    </div>
+    <hr />
+    <h2 class="text-center" style="font-size: 50px">HomeWork</h2>
+    <div class="hwno1 my-5">
+      <p class="" style="font-size: 20px; color: blueviolet">
+        Bài 1: Nhập 3 số và sắp xếp theo thứ tự tăng dần.
+      </p>
+      <label>Nhập số thứ nhất</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="firstNum"
+        placeholder=""
+      />
+      <label>Nhập số thứ hai</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="secondNum"
+        placeholder=""
+      />
+      <label>Nhập số thứ ba</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="thirstNum"
+        placeholder=""
+      />
+      <a
+        name=""
+        id=""
+        class="btn btn-primary col-2 my-3"
+        href="#"
+        role="button"
+        onclick="arrangeFunc()"
+        >Arrage</a
+      >
+      <br />
+      <label>kết quả:</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="resultArrange"
+        placeholder=""
+      />
+    </div>
+    <div class="hwno2 my-5">
+      <p class="" style="font-size: 20px; color: blueviolet">
+        Bài 2: chương trình chào hỏi các thành viên trong gia đình
+      </p>
+      <div class="auto-talk">
+        <p class="quesID">Who are you??</p>
+        <select class="form-control" id="memberID" onchange="memberList()">
+          <option value=""></option>
+          <option value="B">Bố</option>
+          <option value="M">Mẹ</option>
+          <option value="A">Anh Trai</option>
+          <option value="E">Em gái</option>
+          <option value="T">Thằng tạo ra mày</option>
+        </select>
+        <p id="Talk" style="padding: 15px 0"></p>
+      </div>
+    </div>
+    <div class="hwno3 my-5">
+      <p class="" style="font-size: 20px; color: blueviolet">
+        Bài 3: Nhập 3 số nguyên và tìm số lượng số chẵn, số lẻ
+      </p>
+      <label>Nhập số thứ nhất</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="firstNum3"
+        placeholder=""
+      />
+      <label>Nhập số thứ hai</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="secondNum3"
+        placeholder=""
+      />
+      <label>Nhập số thứ ba</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="thirstNum3"
+        placeholder=""
+      />
+      <a
+        name=""
+        id=""
+        class="btn btn-primary col-2 my-3"
+        href="#"
+        role="button"
+        onclick="findFunc()"
+        >Find</a
+      >
+      <br />
+      <label>kết quả:</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="Numbertypeid"
+        placeholder=""
+      />
+    </div>
+    <div class="hwno4 my-5">
+      <p class="" style="font-size: 20px; color: blueviolet">
+        Bài 4: Nhập 3 cạnh tam giác. Xác định loại tam giác?
+      </p>
+      <label>Cạnh thứ nhất</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="cur1"
+        placeholder=""
+      />
+      <label>Cạnh thứ hai</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="cur2"
+        placeholder=""
+      />
+      <label>Cạnh thứ ba</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="cur3"
+        placeholder=""
+      />
+      <a
+        name=""
+        id=""
+        class="btn btn-primary col-2 my-3"
+        href="#"
+        role="button"
+        onclick="defTriangle()"
+        >Check</a
+      >
+      <br />
+      <label>kết quả:</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id="TriangleTypeId"
+        placeholder=""
+      />
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
